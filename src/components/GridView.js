@@ -6,12 +6,10 @@ import LinearGradient from 'react-native-linear-gradient';
 
 const GridView = () => {
     const [items, setItems] = React.useState([
-        { name: 'Bed Room', code: '7', url: require('../assets/boy.png') },
-        { name: 'Kitchen', code: '5', url: require('../assets/boy.png') },
-        { name: 'Drawing room', code: '10', url: require('../assets/boy.png') },
-        { name: 'Terrace', code: '11', url: require('../assets/boy.png') },
-        { name: 'Guest Room', code: '6', url: require('../assets/boy.png') },
-        { name: 'Comman Room', code: '4', url: require('../assets/boy.png') },
+        { name: 'Smart light', code: '7', url: require('../assets/boy.png') },
+        { name: 'Smart AC', code: '5', url: require('../assets/boy.png') },
+        { name: 'Smart TV', code: '10', url: require('../assets/boy.png') },
+        { name: 'Smart TV', code: '11', url: require('../assets/boy.png') },
     ]);
     const [hoveredItem, setHoveredItem] = useState(null);
     const handleItemHover = (item) => {
@@ -31,12 +29,7 @@ const GridView = () => {
                     onMouseEnter={() => handleItemHover(item)} // Handle hover in
                     onMouseLeave={() => handleItemHover(null)} // Handle hover out
                 >
-                    <LinearGradient
-                        start={{ x: 0, y: 0 }}
-                        end={{ x: 1, y: 0 }}
-                        colors={['#363E51', '#4C5770']}
-                        style={styles.linearGradient}
-                    >
+
                     <View style={[
                         styles.itemContainer,
                         styles.IconCard,
@@ -47,9 +40,7 @@ const GridView = () => {
                             source={item.url}
                         />
                         <Text style={styles.itemName}>{item.name} </Text>
-                        <Text style={styles.itemCode}>{item.code} Devies</Text>
                     </View>
-                    </LinearGradient>
                 </TouchableOpacity>
             )}
         />
@@ -60,28 +51,29 @@ export default GridView
 
 const styles = StyleSheet.create({
     gridView: {
-        margin: 10,
         flex: 1,
+        margin:30
     },
     itemContainer: {
-        justifyContent: 'center',
+        justifyContent: 'space-around',
         alignItems: 'center',
         borderRadius: 5,
         padding: 10,
-        height: 115,
+        width: 160,
+        height:135
     },
     itemName: {
         fontSize: 16,
-        color: '#fff',
+        color: '#464646',
         fontWeight: '600',
     },
     itemCode: {
         fontWeight: '600',
         fontSize: 12,
-        color: '#fff',
+        color: '#464646',
     },
     IconCard: {
-        backgroundImage: 'linear-gradient(308deg, #363E51 0%, #4C5770 97.32%)',
+        backgroundColor: '#FFF'
     },
     img: {
         width: 40,

@@ -18,18 +18,9 @@ const Home = () => {
     <SafeAreaView style={styles.container}>
       <ScrollView>
       <View style={styles.container}>
-      <View style={styles.nav}>
-        <TouchableOpacity>
-          <Image
-            style={styles.navimg}
-            source={require('../assets/navbar.png')}
-          />
-        </TouchableOpacity>
-      </View>
       <View style={styles.heading}>
         <View>
-          <Text style={styles.h2Text}>Hello Rohit</Text>
-          <Text style={styles.h3Text}>Welcome to Home</Text>
+          <Text style={styles.h3Text}>Hi, Drax</Text>
         </View>
         <View>
 
@@ -40,13 +31,21 @@ const Home = () => {
         </View>
       </View>
       <View style={styles.topSection}>
-        <Weathercard />
+       <View>
+         <Text>Living Room</Text>
+       </View>
+       <View>
+         <Text>Dinning</Text>
+       </View>
+       <View>
+         <Text>Kitchen</Text>
+       </View>
       </View>
       <View style={styles.middleSection}>
-        <Text style={styles.h3Text}>Your Rooms</Text>
         <GridView/>
       </View>
       <View style={styles.bottomSection}>
+        <Text style={styles.h3Text}>bottom section</Text>
       </View>
     </View>
       </ScrollView>
@@ -59,8 +58,8 @@ export default Home
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        // backgroundImage:'linear-gradient(180deg, #292C31 0%, #000 30.09%, #000 57.35%, #292929 100%)',
-        backgroundColor: '#242C3B'
+        backgroundColor: '#F2F2F2',
+        marginTop:5
       },
       nav: {
         flex: 0.1
@@ -75,15 +74,15 @@ const styles = StyleSheet.create({
       },
       heading: {
         flex: 0.2,
-        paddingTop: 5,
+        padding: 15,
         flexDirection: 'row',
-        justifyContent: 'space-around',
+        justifyContent:'space-between',
         margin: 5
       },
       topSection: {
         flex: 0.5,
-        justifyContent: 'center',
-        alignItems: 'center'
+        flexDirection:'row',
+        justifyContent:'space-around'
         // backgroundImage: 'linear-gradient(101deg, #97C4D2 11.98%, #DD96D6 119.18%)',
       },
       middleSection: {
@@ -101,8 +100,11 @@ const styles = StyleSheet.create({
         fontSize: 35
       },
       h3Text: {
-        color: 'white',
-        fontSize: 15
+        color: '#464646',
+        fontFamily:'Noto Sans',
+        fontSize: 32,
+        fontStyle:'normal',
+        fontWeight:'700',
       },
       img: {
         width: 60,
