@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image } from 'react-native'
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
 import LinearGradient from 'react-native-linear-gradient';
 
@@ -76,15 +76,94 @@ export const Weathercard = () => {
   )
 }
 
+export const MusicCard = () => {
+  return (
+    <View style={[styles.musicCardContainer, styles.musicCardBGColor]}>
+      <View style={styles.container}>
+        <Image
+          style={[styles.img, styles.muscicNoteImg]}
+          source={require('../assets/musical-note.png')}
+        />
+        <View >
+          <Text style={styles.itemName}>Music</Text>
+          <Text>Give little bit</Text>
+        </View>
+      </View>
+
+      <View style={styles.container}>
+        <TouchableOpacity>
+        <Image
+          style={styles.img}
+          source={require('../assets/left-arrow.png')}
+        />
+        </TouchableOpacity>
+
+        <TouchableOpacity>
+        <Image
+          style={styles.img}
+          source={require('../assets/pause.png')}
+        />
+        </TouchableOpacity>
+        <TouchableOpacity>
+        <Image
+          style={styles.img}
+          source={require('../assets/right-arrow.png')}
+        />
+        </TouchableOpacity>
+      </View>
+    </View>
+  )
+}
+
+export const AddItem = () => {
+  return (
+    <TouchableOpacity style={{flex:1}}>
+      <View style={styles.addItem}>
+
+        <View style={styles.addItemContainer}>
+          <Image
+            style={{ width: 50, height: 50 }}
+            source={require('../assets/plus.png')}
+          />
+          <Text>Add New Device</Text>
+        </View>
+
+      </View>
+    </TouchableOpacity>
+
+  )
+}
 
 
 export default Cards
 
 const styles = StyleSheet.create({
+  //----------------------addItem---------------
+  addItem: {
+    flex: 1,
+    margin: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: 335,
+    height: 70,
+    backgroundColor: '#F2F2F2',
+    borderRadius: 10,
+    borderStyle: 'dashed',
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: '#BDBDBD',
+  },
+  addItemContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row'
+  },
   container: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    flexDirection: 'row'
   },
   linearGradient: {
     alignItems: 'center',
@@ -119,16 +198,43 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
-},
+  },
   subtitle: {
-    color: 'white'
+    color: 'black'
   },
   lightText: {
     color: 'white'
-},
-img: {
-  width: 80,
-  height: 80,
-  borderRadius:50
-},
+  },
+  avatar: {
+    width: 80,
+    height: 80,
+    borderRadius: 50
+  },
+  //--------------------------music card-------------------------
+  musicCardContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    width: 335,
+    height: 100,
+    borderRadius: 10,
+  },
+  musicCardBGColor: {
+    backgroundColor: '#fff'
+  },
+  img: {
+    width: 25,
+    height: 25,
+  },
+  muscicNoteImg: {
+    margin: 20,
+    width: 50,
+    height: 50,
+  },
+  itemName: {
+    fontSize: 16,
+    fontFamily: 'Noto Sans',
+    color: '#464646',
+    fontSize: 18,
+    fontWeight: '700',
+  },
 })

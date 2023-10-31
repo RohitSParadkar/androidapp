@@ -17,10 +17,12 @@ import {
   View,
 } from 'react-native';
 import Home from './src/components/Home';
+import LivingRoom from './src/components/livingRoom/LivingRoom';
 function App() {
   return (
    <View style={styles.container}>
-   <Home/>
+   {/* <Home/> */}
+   <LivingRoom/>
    </View>
   );
 }
