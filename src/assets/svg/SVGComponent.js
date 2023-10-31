@@ -23,8 +23,8 @@ const SVGComponent = (props) => (
         y2={204}
         gradientUnits="userSpaceOnUse"
       >
-        <Stop stopColor="#FCAE39" />
-        <Stop offset={1} stopColor="#FCAE39" stopOpacity={0} />
+        <Stop stopColor={props.color} />
+        <Stop offset={1} stopColor={props.color} stopOpacity={0} />
       </LinearGradient>
     </Defs>
   </Svg>

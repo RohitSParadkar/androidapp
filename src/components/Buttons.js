@@ -2,7 +2,7 @@ import { StyleSheet, Text, View,Switch } from 'react-native'
 import React ,{useState}from 'react'
 
 
-export const ToggleButton =()=>{
+export const ToggleButton =(props)=>{
     const [isEnabled, setIsEnabled] = useState(false);
     const toggleSwitch = () => setIsEnabled(previousState => !previousState);
     return (
@@ -31,7 +31,8 @@ export default Buttons
 const styles = StyleSheet.create({
     toggleContainer: {
         flex:1,
-        alignItems:'flex-start'
+        alignItems:'center',
+        justifyContent:'center'
 
       },
 })

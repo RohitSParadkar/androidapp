@@ -1,10 +1,16 @@
-import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
-import React from 'react'
+import { StyleSheet, Text, View, Image, TouchableOpacity, Switch, } from 'react-native'
+import React, { useState } from 'react'
 import { ToggleButton } from '../Buttons'
 import SVGComponent from '../../assets/svg/SVGComponent'
+import CostumSlider from './CostumSlider'
+import SliderCard from './SliderCard'
 
 
 const LivingRoom = () => {
+    const mycolor = { yellow: "#FCAE39", violet: "#7054FF", lightBlue: '#6EADFC', sky: '#61D1EB', green: '#6FB86D', pink: '#FF427D', orange: '#FF4C4B', white: '#EFF0FB' };
+    const [isEnabled, setIsEnabled] = useState(false);
+    const [color,setColor] = useState(mycolor.orange);
+    const toggleSwitch = () => setIsEnabled(previousState => !previousState);
     return (
         <View style={styles.outerContiner}>
             {/* ----------------------------------------------------------- */}
@@ -17,7 +23,15 @@ const LivingRoom = () => {
                         <View >
                             <Text style={styles.itemName}>Power</Text>
                         </View>
-                        <ToggleButton />
+                        <View style={styles.toggleContainer}>
+                            <Switch
+                                trackColor={{ false: '#767577', true: '#81b0ff' }}
+                                thumbColor={isEnabled ? '#f5dd4b' : '#f4f3f4'}
+                                ios_backgroundColor="#3e3e3e"
+                                onValueChange={toggleSwitch}
+                                value={isEnabled}
+                            />
+                        </View>
                     </View>
                     <View style={{ flex: 0.5 }}>
                         <Text style={styles.itemName}>Color</Text>
@@ -31,7 +45,7 @@ const LivingRoom = () => {
                     <Image
                         source={require('../../assets/lamp.png')}
                     />
-                    <SVGComponent />
+                    <SVGComponent color={!isEnabled?mycolor.white:color} />
                 </View>
             </View>
 
@@ -40,10 +54,10 @@ const LivingRoom = () => {
                 <Text style={styles.itemName}>Tone Glow</Text>
                 <View style={styles.toneContiner}>
                     <TouchableOpacity>
-                    <View style={styles.warmBox}><Text style={styles.lightText}>Warm</Text></View>
+                        <View style={styles.warmBox}><Text style={styles.lightText}>Warm</Text></View>
                     </TouchableOpacity>
                     <TouchableOpacity>
-                    <View style={styles.coldBox}><Text>Cold</Text></View>
+                        <View style={styles.coldBox}><Text>Cold</Text></View>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -51,8 +65,8 @@ const LivingRoom = () => {
             {/* ----------------------------------------------------------------------------------- */}
             <View style={styles.bottomContiner}>
                 <Text style={styles.itemName}>Intensity</Text>
-                
-                
+                <CostumSlider />
+                <SliderCard/>
             </View>
         </View>
     )
@@ -64,38 +78,43 @@ const styles = StyleSheet.create({
     outerContiner: {
         flex: 1,
         padding: 15,
-        backgroundColor:'#F2F2F2'
+        backgroundColor: '#F2F2F2'
     },
     //-----------------------middle continer
     middleContiner: {
         flex: 0.3
     },
-    lightText:{
-       color:'#fff'
+    lightText: {
+        color: '#fff'
     },
-    toneContiner: {
+    toggleContainer: {
         flex:1,
-        flexDirection:'row',
-        justifyContent:'center',
-        alignItems:'center',
+        alignItems:'flex-start'
+
+      },
+    toneContiner: {
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
     },
     warmBox: {
         width: 168,
         height: 32,
-        justifyContent:'center',
-        alignItems:'center',
+        justifyContent: 'center',
+        alignItems: 'center',
         backgroundColor: '#464646',
-        borderTopLeftRadius:10,
-        borderBottomLeftRadius:10
+        borderTopLeftRadius: 10,
+        borderBottomLeftRadius: 10
     },
-    coldBox:{
+    coldBox: {
         width: 168,
         height: 32,
-        justifyContent:'center',
-        alignItems:'center',
+        justifyContent: 'center',
+        alignItems: 'center',
         backgroundColor: '#FFF',
-        borderTopRightRadius:10,
-        borderBottomRightRadius:10
+        borderTopRightRadius: 10,
+        borderBottomRightRadius: 10
 
     },
     //-------------Top continer--------------------
@@ -128,7 +147,7 @@ const styles = StyleSheet.create({
         fontFamily: 'Noto Sans',
         color: '#464646',
         fontWeight: '700',
-        fontStyle:'normal'
+        fontStyle: 'normal'
     },
     colorWheelImg: {
         width: 40,
