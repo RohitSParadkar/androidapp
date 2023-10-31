@@ -1,12 +1,14 @@
 import { StyleSheet, Text, View, Button } from 'react-native'
-import React from 'react';
+import React,{useState}from 'react';
 import SlidingUpPanel from 'rn-sliding-up-panel';
 import { ToggleButton } from '../Buttons';
 
 const SliderCard = () => {
+    const [isEnabled, setIsEnabled] = useState(false);
+    const toggleSwitch = () => setIsEnabled(previousState => !previousState);
     return (
         <View style={styles.container}>
-            <View style={{flex:1,flexDirection:'row'}}>
+            <View style={{flex:1,flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
             <Text>Sechedule</Text>
             <ToggleButton/>
             </View>
@@ -27,6 +29,8 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#FFF',
+        borderTopLeftRadius:30,
+        borderTopRightRadius:30,
         alignItems: 'center',
         justifyContent: 'center'
     }

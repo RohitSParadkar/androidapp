@@ -5,20 +5,20 @@ import { StyleSheet, View, Text } from "react-native";
 const CostumSlider = () => {
     const [value, setValue] = useState(50);
     const onSliderValueChange = (sliderValue) => {
-        setValue(Math.floor(sliderValue)); // Update the 'value' state when the slider value changes
+        setValue(sliderValue); // Update the 'value' state when the slider value changes
     };
     return (
-        <View style={styles.container}>
+        <View style={styles.sliderContainer}>
             <Slider
                 style={{ width: 300, height:20}}
                 minimumValue={0}
-                maximumValue={100}
+                maximumValue={1}
                 minimumTrackTintColor="blue"
                 maximumTrackTintColor="blue"
                 onValueChange={onSliderValueChange}
                 trackStyle={styles.sliderTrack}
             />
-            <Text>Intensity : {value} %</Text>
+            <Text>Intensity : {value}</Text>
         </View>
     )
 }
@@ -26,7 +26,7 @@ const CostumSlider = () => {
 export default CostumSlider
 
 const styles = StyleSheet.create({
-    container: {
+    sliderContainer: {
         justifyContent: "center",
     },
     sliderTrack: {
