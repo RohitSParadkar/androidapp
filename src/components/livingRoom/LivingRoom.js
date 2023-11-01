@@ -143,6 +143,7 @@ const LivingRoom = () => {
                 justifyContent: 'flex-start',
                 alignItems: 'flex-start',
                 marginLeft: 30,
+                rowGap:10
               }}>
               <Text style={styles.itemName}>Color</Text>
               <Text>Pick your Color</Text>
