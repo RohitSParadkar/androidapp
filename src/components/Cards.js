@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
-import React from 'react'
+import React ,{useState}from 'react'
 import LinearGradient from 'react-native-linear-gradient';
 
 const Cards = () => {
@@ -77,6 +77,7 @@ export const Weathercard = () => {
 }
 
 export const MusicCard = () => {
+  const[playButton,setPlayButton] = useState()
   return (
     <View style={[styles.musicCardContainer, styles.musicCardBGColor]}>
       <View style={styles.container}>
@@ -98,7 +99,7 @@ export const MusicCard = () => {
         />
         </TouchableOpacity>
 
-        <TouchableOpacity>
+        <TouchableOpacity >
         <Image
           style={styles.img}
           source={require('../assets/pause.png')}
@@ -115,9 +116,9 @@ export const MusicCard = () => {
   )
 }
 
-export const AddItem = () => {
+export const AddItem = (props) => {
   return (
-    <TouchableOpacity style={{flex:1}}>
+    <TouchableOpacity style={{flex:1} } onPress={props.handleAddItem}>
       <View style={styles.addItem}>
 
         <View style={styles.addItemContainer}>

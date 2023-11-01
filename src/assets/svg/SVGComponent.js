@@ -35,11 +35,13 @@ export const ColorPicker = (props) => {
   xmlns="http://www.w3.org/2000/svg"
   width={25}
   height={25}
-  viewBox="0 0 25 25"
   fill="none"
   {...props}
 >
-  <Circle cx={12.5} cy={12.5} r={12.5} fill="#FCAE39" />
+  <Path
+    fill="#7054FF"
+    d="M25 12.5C25 19.404 19.404 25 12.5 25S0 19.404 0 12.5 5.596 0 12.5 0 25 5.596 25 12.5Zm-21.25 0a8.75 8.75 0 1 0 17.5 0 8.75 8.75 0 0 0-17.5 0Z"
+  />
 </Svg>
 
 }

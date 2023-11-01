@@ -11,6 +11,9 @@ const GridView = () => {
         { name: 'Smart AC', code: '5', url: require('../assets/air-conditioner.png') },
         { name: 'Smart TV', code: '10', url: require('../assets/tv.png') },
         { name: 'Smart Fan', code: '11', url: require('../assets/fan.png') },
+        { name: 'Smart Fan', code: '11', url: require('../assets/fan.png') },
+        { name: 'Smart Fan', code: '11', url: require('../assets/fan.png') },
+        
     ]);
     const [hoveredItem, setHoveredItem] = useState(null);
     const handleItemHover = (item) => {
@@ -57,7 +60,8 @@ export default GridView
 const styles = StyleSheet.create({
     gridView: {
         flex: 1,
-        margin: 30
+        margin: 30,
+        height:300
     },
     itemContainer: {
         flex: 1,

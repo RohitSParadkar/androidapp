@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import {
   Image,
   SafeAreaView,
@@ -12,15 +12,22 @@ import {
 } from 'react-native';
 import Cards, {AddItem, MusicCard } from '../components/Cards';
 import GridView from './GridView';
+import ProfileAvatar from './ProfileAvatar';
+import ModalTester from './ModalTester';
 
 const Home = () => {
+  const [isModalVisible, setModalVisible] = useState(false);
+  const toggleModal = () => {
+    setModalVisible(!isModalVisible);
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
         <View style={styles.container}>
           <View style={styles.heading}>
             <View>
-              <Text style={styles.h3Text}>Hi, Drax</Text>
+              <Text style={styles.h3Text}>Hi, Rohit</Text>
             </View>
             <View>
 
@@ -28,23 +35,24 @@ const Home = () => {
                 style={styles.img}
                 source={require('../assets/boy.png')}
               />
+              {/* <ProfileAvatar/> */}
             </View>
           </View>
           <View style={styles.topSection}>
             <View>
               <TouchableOpacity>
-                <Text>Living Room</Text>
+                <Text style={[styles.tabText,{color:'#464646'}]}>Living Room</Text>
               </TouchableOpacity>
             </View>
             <View>
               <TouchableOpacity>
-                <Text>Dinning</Text>
+                <Text  style={[styles.tabText,{color:'#BDBDBD'}]}>Dinning</Text>
               </TouchableOpacity>
 
             </View>
             <View>
               <TouchableOpacity>
-                <Text>Kitchen</Text>
+                <Text  style={[styles.tabText,{color:'#BDBDBD'}]}>Kitchen</Text>
               </TouchableOpacity>
 
             </View>
@@ -54,7 +62,8 @@ const Home = () => {
           </View>
           <View style={styles.bottomSection}>
            <MusicCard/>
-           <AddItem/>
+           <AddItem handleAddItem={toggleModal}/>
+           <ModalTester toggleModal={toggleModal} isModalVisible={isModalVisible}/>
           </View>
         </View>
       </ScrollView>
@@ -72,6 +81,12 @@ const styles = StyleSheet.create({
   },
   nav: {
     flex: 0.1
+  },
+  tabText:{
+    fontSize: 18,
+    fontFamily: 'Noto Sans',
+    fontWeight: '400',
+    fontStyle: 'normal',
   },
   text: {
     color: 'white'
