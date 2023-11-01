@@ -1,37 +1,155 @@
-import { StyleSheet, Text, View, Button } from 'react-native'
-import React,{useState}from 'react';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Button,
+  TouchableOpacity,
+  Image,
+} from 'react-native';
+import React, {useState} from 'react';
 import SlidingUpPanel from 'rn-sliding-up-panel';
-import { ToggleButton } from '../Buttons';
+import {ToggleButton} from '../Buttons';
+import SVGComponent, {ColorPicker} from '../../assets/svg/SVGComponent';
 
 const SliderCard = () => {
-    const [isEnabled, setIsEnabled] = useState(false);
-    const toggleSwitch = () => setIsEnabled(previousState => !previousState);
-    return (
-        <View style={styles.container}>
-            <View style={{flex:1,flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
-            <Text>Sechedule</Text>
-            <ToggleButton/>
-            </View>
-            <Button title='Show panel' onPress={() => this._panel.show()} />
-            <SlidingUpPanel ref={c => this._panel = c}>
-                <View style={styles.container}>
-                    <Text>Here is the content inside panel</Text>
-                    <Button title='Hide' onPress={() => this._panel.hide()} />
-                </View>
-            </SlidingUpPanel>
-        </View>
-    )
-}
+//   const [isEnabled, setIsEnabled] = useState(false);
+//   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+//   const showSlider = () => {};
 
-export default SliderCard
+  return (
+    <View style={styles.sliderContainer}>
+      <View style={{flex: 0.2}}>
+        <TouchableOpacity
+          onPress={() => this._panel.show()}
+          style={{flex: 1, alignItems: 'center'}}>
+          <View style={styles.line}></View>
+        </TouchableOpacity>
+      </View>
+      <View
+        style={{
+          flex: 0.4,
+          justifyContent: 'flex-start',
+          alignItems: 'flex-start',
+          marginLeft: 30,
+        }}>
+        <Text style={styles.itemName}>Color</Text>
+        <Text>Pick your Color</Text>
+      </View>
+      <View style={{flex: 0.2, justifyContent: 'center', alignItems: 'center'}}>
+        <View style={styles.faintLine}></View>
+      </View>
+      {/* <Button title="Show panel" onPress={() => this._panel.show()} /> */}
+      <SlidingUpPanel ref={c => (this._panel = c)}>
+        <View style={styles.showContainer}>
+          <TouchableOpacity onPress={() => this._panel.hide()}>
+            <View style={{alignItems: 'center'}}>
+              <View style={styles.line}></View>
+            </View>
+          </TouchableOpacity>
+          <View style={styles.headContainer}>
+            <View
+              style={{
+                flex: 0.4,
+                justifyContent: 'flex-start',
+                alignItems: 'flex-start',
+                marginLeft: 30,
+              }}>
+              <Text style={styles.itemName}>Color</Text>
+              <Text>Pick your Color</Text>
+            </View>
+            <View
+              style={{
+                flex: 0.2,
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}>
+              <View style={styles.faintLine}></View>
+            </View>
+          </View>
+          {/* ----------------------------------------------- */}
+          <View style={styles.colorContainer}>
+            <View style={{flex:1,flexDirection:'row',justifyContent:'space-around'}}>
+            <TouchableOpacity >
+              <Image source={require('../../assets/images/1.png')} />
+            </TouchableOpacity>
+            <TouchableOpacity >
+              <Image source={require('../../assets/images/2.png')} />
+            </TouchableOpacity>
+            <TouchableOpacity >
+              <Image source={require('../../assets/images/3.png')} />
+            </TouchableOpacity>
+            </View>
+
+             <View style={{flex:1,flexDirection:'row',justifyContent:'space-around'}}>
+            <TouchableOpacity >
+              <Image source={require('../../assets/images/4.png')} />
+            </TouchableOpacity>
+            <TouchableOpacity >
+              <Image source={require('../../assets/images/5.png')} />
+            </TouchableOpacity>
+            <TouchableOpacity >
+              <Image source={require('../../assets/images/6.png')} />
+            </TouchableOpacity>
+            </View>
+
+          </View>
+          <View style={styles.buttonContainer}>
+            {/* <Text>hello</Text> */}
+          </View>
+        </View>
+      </SlidingUpPanel>
+    </View>
+  );
+};
+
+export default SliderCard;
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#FFF',
-        borderTopLeftRadius:30,
-        borderTopRightRadius:30,
-        alignItems: 'center',
-        justifyContent: 'center'
-    }
-})
+  sliderContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    backgroundColor: '#FFF',
+    borderTopLeftRadius: 30,
+    borderTopRightRadius: 30,
+  },
+  //----------------------------show continer------------------------------------
+  headContainer: {
+    flex: 0.4,
+  },
+  showContainer: {
+    flex: 1,
+    backgroundColor: '#FFF',
+    borderTopLeftRadius: 30,
+    borderTopRightRadius: 30,
+  },
+  lineContainer: {
+    flex: 1,
+    backgroundColor: 'red',
+  },
+  colorContainer: {
+    flex: 0.5,
+  },
+  buttonContainer: {
+    flex: 1,
+
+  },
+
+  itemName: {
+    fontSize: 18,
+    fontFamily: 'Noto Sans',
+    color: '#464646',
+    fontWeight: '700',
+    fontStyle: 'normal',
+  },
+  faintLine: {
+    width: 335,
+    height: 3,
+    backgroundColor: '#E4E4E4',
+  },
+  line: {
+    width: 30,
+    height: 3,
+    backgroundColor: '#464646',
+    marginTop: 10,
+  },
+});

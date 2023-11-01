@@ -4,6 +4,7 @@ import { ToggleButton } from '../Buttons'
 import Slider from '@react-native-community/slider';
 import SVGComponent, { ColorPicker } from '../../assets/svg/SVGComponent'
 import CostumSlider from './CostumSlider'
+import SlidingUpPanel from 'rn-sliding-up-panel';
 import SliderCard from './SliderCard'
 
 
@@ -209,4 +210,5 @@ const styles = StyleSheet.create({
     bottomContiner: {
         flex: 0.40
     }
+      //-----------SliderCard------------------------------------
 })

@@ -31,17 +31,16 @@ const SVGComponent = (props) => (
 );
 
 export const ColorPicker = (props) => {
-
   <Svg
-    xmlns="http://www.w3.org/2000/svg"
-    width={25}
-    height={25}
-    viewBox="0 0 25 25"
-    fill="none"
-    {...props}
-  >
-    <Circle cx={12.5} cy={12.5} r={12.5} fill={props.color}/>
-  </Svg>
+  xmlns="http://www.w3.org/2000/svg"
+  width={25}
+  height={25}
+  viewBox="0 0 25 25"
+  fill="none"
+  {...props}
+>
+  <Circle cx={12.5} cy={12.5} r={12.5} fill="#FCAE39" />
+</Svg>
 
 }
 
