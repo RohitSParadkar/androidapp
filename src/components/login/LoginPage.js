@@ -33,7 +33,7 @@ const LoginPage = () => {
             style={styles.input}
             onChangeText={setPassword}
             value={password}
-            placeholder="password"
+            placeholder="Password"
             secureTextEntry
           />
           <View style={styles.centerContainer}>

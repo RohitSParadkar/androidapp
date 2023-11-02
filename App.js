@@ -23,8 +23,8 @@ function App() {
   return (
    <View style={styles.container}>
    {/* <Home/> */}
-   {/* <LivingRoom/> */}
-   <LoginPage/>
+   <LivingRoom/>
+   {/* <LoginPage/> */}
    </View>
   );
 }
