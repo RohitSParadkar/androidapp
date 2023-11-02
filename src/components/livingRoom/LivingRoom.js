@@ -127,7 +127,7 @@ const LivingRoom = () => {
 
         {/* ----------------------------------slider card------------------------------------------------- */}
         <View style={styles.bottomContiner}>
-          <Text style={styles.itemName}>Intensity</Text>
+          
           {/* <SliderCard /> */}
           <View style={styles.sliderCardContainer}>
             <View style={{flex: 0.2}}>

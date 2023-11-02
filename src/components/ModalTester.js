@@ -49,6 +49,9 @@ function ModalTester(props) {
           </View>
           {/* ------------------------------------------- */}
           <View style={styles.modalMidContainer}>
+          <Text
+               style={styles.inputLabel}
+              >Device Type:</Text>
             <View style={{flex: 1}}>
               <Dropdown
                 style={styles.dropdown}
@@ -69,19 +72,22 @@ function ModalTester(props) {
                 }}
               />
             </View>
-            <View style={{flex: 1,margin:4}}>
+            <View style={{flex: 1,marginBottom:5}}>
               <Text style={styles.inputLabel}>Device Name:</Text>
               <Input placeholder="Device Name" 
                onChangeText={setDeviceName}
                value={deviceName}/>
+               
             </View>
-            <View style={{flex: 1,margin:4}}>
+            <View style={{flex: 1,margin:5}}>
               <Text
-               style={styles.inputLabel}
+               style={[styles.inputLabel,{marginTop:5}]}
               >Device Id:</Text>
               <Input placeholder="Device Id" 
                onChangeText={setDeviceId}
-               value={deviceId}/>
+               value={deviceId}
+               style={{marginBottom:3}}
+               />
             </View>
           </View>
           <View style={styles.modalBtnContainer}>
@@ -117,7 +123,7 @@ export default ModalTester;
 const styles = StyleSheet.create({
   modalContainer: {
     backgroundColor: '#F2F2F2',
-    height: 400,
+    height: 450,
     // flex:1,
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
@@ -157,8 +163,8 @@ const styles = StyleSheet.create({
   },
   //----------------------dropdown
   dropdown: {
-    margin: 16,
-    height: 50,
+    margin: 10,
+    height: 20,
     borderBottomColor: 'gray',
     borderBottomWidth: 0.5,
     backgroundColor:''
@@ -170,7 +176,10 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   selectedTextStyle: {
-    fontSize: 16,
+    fontSize: 18,
+    color:'black',
+    fontFamily: 'Noto Sans',
+    fontStyle: 'normal',
   },
   iconStyle: {
     width: 20,

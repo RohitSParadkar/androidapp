@@ -10,6 +10,7 @@ import React, {useState} from 'react';
 import SlidingUpPanel from 'rn-sliding-up-panel';
 import {ToggleButton} from '../Buttons';
 import SVGComponent, {ColorPicker} from '../../assets/svg/SVGComponent';
+import Schedular from './Schedular';
 
 const SliderCard = () => {
 
@@ -109,6 +110,11 @@ const SliderCard = () => {
   );
 };
 
+export const ScheduleSliderCard = ()=>{
+  return(
+   <Schedular/>
+  )
+}
 export default SliderCard;
 
 const styles = StyleSheet.create({
