@@ -22,7 +22,7 @@ function ModalTester(props) {
   const handleCancle = ()=>{
     props.toggleModal
   }
-  console.warn(deviceName)
+  // console.warn(deviceName)
   return (
     <View>
       <Modal isVisible={props.isModalVisible}>
@@ -161,6 +161,7 @@ const styles = StyleSheet.create({
     height: 50,
     borderBottomColor: 'gray',
     borderBottomWidth: 0.5,
+    backgroundColor:''
   },
   icon: {
     marginRight: 5,

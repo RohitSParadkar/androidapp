@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
 import React ,{useState}from 'react'
 import LinearGradient from 'react-native-linear-gradient';
-
+import * as Animatable from 'react-native-animatable';
 const Cards = () => {
   return (
     <View style={styles.container}>
@@ -77,7 +77,7 @@ export const Weathercard = () => {
 }
 
 export const MusicCard = () => {
-  const[playButton,setPlayButton] = useState()
+  const[playButton,setPlayButton] = useState('play')
   return (
     <View style={[styles.musicCardContainer, styles.musicCardBGColor]}>
       <View style={styles.container}>
@@ -92,19 +92,25 @@ export const MusicCard = () => {
       </View>
 
       <View style={styles.container}>
-        <TouchableOpacity>
+        <TouchableOpacity >
         <Image
           style={styles.img}
           source={require('../assets/left-arrow.png')}
         />
         </TouchableOpacity>
 
-        <TouchableOpacity >
+        {playButton=='play'&&<TouchableOpacity onPress={()=>{setPlayButton('pause')}} >
         <Image
           style={styles.img}
           source={require('../assets/pause.png')}
         />
-        </TouchableOpacity>
+        </TouchableOpacity>}
+       {playButton=='pause'&& <TouchableOpacity onPress={()=>{setPlayButton('play')}}>
+        <Image
+          style={styles.img}
+          source={require('../assets/play.png')}
+        />
+        </TouchableOpacity>}
         <TouchableOpacity>
         <Image
           style={styles.img}

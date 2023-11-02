@@ -1,58 +1,82 @@
-import { StyleSheet, Text, View ,Image} from 'react-native'
-import React from 'react'
+import React from 'react';
+import {
+  View,
+  KeyboardAvoidingView,
+  TextInput,
+  StyleSheet,
+  Text,
+  Platform,
+  TouchableWithoutFeedback,
+  Button,
+  Keyboard,
+} from 'react-native';
 
-const LivingRoom = () => {
-    return (
-        <View style={styles.outerContiner}>
-            <View style={styles.topContiner}>
-                <View>
-                <Text style={styles.blurText}>LivingRoom</Text>
-                </View>
-                
-                <View>
-                <Image
-                style={styles.img}
-                source={require('../../assets/lamp.png')}
-              />
-                </View>
-            </View>
-            <View style={styles.middleContiner}>
-                <Text>LivingRoom</Text>
-            </View>
-            <View style={styles.bottomContiner}>
-                <Text>LivingRoom</Text>
-            </View>
+const KeyboardAvoidingComponent = () => {
+  return (
+    <KeyboardAvoidingView
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      style={styles.container}>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <View style={styles.inner}>
+          <Text style={styles.header}>Header</Text>
+          <TextInput placeholder="Username" style={styles.textInput} />
+          <View style={styles.btnContainer}>
+            <Button title="Submit" onPress={() => null} />
+          </View>
         </View>
-    )
-}
-
-export default LivingRoom
+      </TouchableWithoutFeedback>
+    </KeyboardAvoidingView>
+  );
+};
 
 const styles = StyleSheet.create({
-    outerContiner:{
-        flex:1
-    },
-    //-------------Top continer--------------------
-    topContiner:{
-       flex:1
-    },
-    lampImage:{
-      width:183,
-      height:304
-    },
-    blurText:{
-      color:'#BDBDBD',
-      fontFamily:'Noto Sans',
-      fontSize:56,
-      fontStyle:'normal',
-      fontWeight:'700',
-      opacity:0.2
-    },
-    //-----------------------middle continer
-    middleContiner:{
-        flex:0.40
-    },
-    bottomContiner:{
-        flex:0.40
-    }
-})
+  container: {
+    flex: 1,
+  },
+  inner: {
+    padding: 24,
+    flex: 1,
+    justifyContent: 'space-around',
+  },
+  header: {
+    fontSize: 36,
+    marginBottom: 48,
+  },
+  textInput: {
+    height: 40,
+    borderColor: '#000000',
+    borderBottomWidth: 1,
+    marginBottom: 36,
+  },
+  btnContainer: {
+    backgroundColor: 'white',
+    marginTop: 12,
+  },
+});
+
+export default KeyboardAvoidingComponent;
+
+
+<View style={styles.loginContiner}>
+<View style={[styles.loginOuterContainer]}>   
+{/* 'rgba(255,255,255, 0.17)' */}
+  <View style={{flex:1}}>
+  <Text>Login</Text>
+  <Text>Glad you are back</Text>
+  </View>
+  <View style={{flex:1}}>
+  <TextInput
+  style={styles.input}
+  onChangeText={setUsername}
+  value={username}
+  placeholder='Username'
+/>
+ <TextInput
+  style={styles.input}
+  onChangeText={setUsername}
+  value={username}
+  placeholder='password'
+/>
+  </View>
+</View>
+</View>
